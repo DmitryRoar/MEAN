@@ -16,7 +16,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run client-install && npm run build --prefix client"
   },
   "keywords": [],
-  "author": "Dmitry prod. Vladilen",
+  "author": "dmitryroar <dmitrydima1488@yandex.ru>",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

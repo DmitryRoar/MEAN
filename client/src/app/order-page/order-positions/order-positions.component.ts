@@ -36,12 +36,10 @@ export class OrderPositionsComponent implements OnInit {
           })
         })
       )
-    console.log(this.positions$)
-
   }
 
   addToOrder(position: Position) {
-    MaterialService.toast(`${position.name} была добавлено x${position.quantity}`)
+    MaterialService.toast(`${position.name} был(а) добавлено x${position.quantity}`)
     this.orderService.add(position)
   }
 }

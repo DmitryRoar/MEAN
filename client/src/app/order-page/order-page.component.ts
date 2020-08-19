@@ -71,7 +71,6 @@ export class OrderPageComponent implements
 
     this.oSub = this.ordersService.create(order).subscribe(newOrder => {
       MaterialService.toast(`Заказ #${newOrder.order} был добавлен.`)
-      console.log(newOrder)
       this.order.clear()
     }, error => {
       MaterialService.toast(error.error.message)

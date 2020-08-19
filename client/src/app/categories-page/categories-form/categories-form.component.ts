@@ -3,7 +3,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router'
 import {FormControl, FormGroup, Validators} from '@angular/forms'
 import {CategoriesService} from '../../shared/services/categories.service'
 import {switchMap} from 'rxjs/operators'
-import {of} from 'rxjs'
+import {Observable, of} from 'rxjs'
 import {MaterialService} from '../../shared/classes/material.service'
 import {Category} from '../../shared/interfaces'
 
@@ -83,18 +83,15 @@ export class CategoriesFormComponent implements OnInit {
   onFileUpload(event: any) {
     const file = event.target.files[0]
     this.image = file
-
     const reader = new FileReader()
-
     reader.onload = () => {
       this.imagePreview = reader.result
     }
-
     reader.readAsDataURL(file)
   }
 
   onSubmit() {
-    let obs$
+    let obs$: Observable<any>
     this.form.disable()
 
     if (this.isNew) {
@@ -105,6 +102,7 @@ export class CategoriesFormComponent implements OnInit {
 
     obs$.subscribe(
       category => {
+        console.log('catt', category)
         this.category = category
         MaterialService.toast('Изменения сохранены.')
         this.form.enable()

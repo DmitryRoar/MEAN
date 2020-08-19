@@ -21,7 +21,6 @@ export class OrderService {
     })
 
     if (candidate) {
-    //  Изменяем кол-во
       candidate.quantity += orderPosition.quantity
     } else {
       this.list.push(orderPosition)

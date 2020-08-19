@@ -44,7 +44,6 @@ export class HistoryPageComponent implements OnInit,
       limit: this.limit
     })
     this.oSub = this.ordersService.fetch(params).subscribe(orders => {
-      console.log(orders)
       this.orders = this.orders.concat(orders)
       this.noMoreOrders = orders.length < STEP
       this.loading = false

@@ -34,13 +34,12 @@ module.exports.remove = async function(req, res) {
 }
 
 module.exports.create = async function(req, res) {
-  const category = new Category({
-    name: req.body.name,
-    user: req.user.id,
-    imageSrc: req.file ? req.file.path : ''
-  })
-
   try {
+    const category = new Category({
+      name: req.body.name,
+      user: req.user.id,
+      imageSrc: req.file ? req.file.path : ''
+    })
     await category.save()
     res.status(201).json(category)
   } catch (e) {
